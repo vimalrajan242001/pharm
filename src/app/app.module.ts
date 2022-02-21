@@ -6,11 +6,10 @@ import { AuthGuard } from './auth/auth.guard';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
@@ -98,17 +97,17 @@ import { AboutToOutofStockWindowComponent } from './mainwindow/about-to-outof-st
 import { AboutToOutofStockItemsComponent } from './mainwindow/about-to-outof-stock-window/about-to-outof-stock-items/about-to-outof-stock-items.component';
 import { XOutofstockDialogBoxComponent } from './mainwindow/xoutofstock-dialog-box/xoutofstock-dialog-box.component';
 
-const appRoutes: Routes =[
-  { path: '',component:  MainwindowComponent},
-  { path: 'doctororders',component:  ADoctorOrderWindowComponent },
-  { path: 'pos',component:  APointofsaleWindowComponent },
-  { path: 'suppliers',component:  ASuppliersWindowComponent },
-  { path: 'predictionreport',component:  APredictionReportWindowComponent,canActivate:[AuthGuard] },
-  { path: 'salesreport',component:  ASalesWindowComponent,canActivate:[AuthGuard] },
-  { path: 'inventory',component:  AInventoryWindowComponent },
-  { path: 'expoutofstock',component:  AExpOutofstockWindowComponent },
-  { path: 'shoppingcart',component:  AShoppingCartWindowComponent },
-  { path: 'settings',component:  XConfigurationSettingsAdminComponent }
+const appRoutes: Routes = [
+  { path: '', component: MainwindowComponent },
+  { path: 'doctororders', component: ADoctorOrderWindowComponent },
+  { path: 'pos', component: APointofsaleWindowComponent },
+  { path: 'suppliers', component: ASuppliersWindowComponent },
+  { path: 'predictionreport', component: APredictionReportWindowComponent, canActivate: [AuthGuard] },
+  { path: 'salesreport', component: ASalesWindowComponent, canActivate: [AuthGuard] },
+  { path: 'inventory', component: AInventoryWindowComponent },
+  { path: 'expoutofstock', component: AExpOutofstockWindowComponent },
+  { path: 'shoppingcart', component: AShoppingCartWindowComponent },
+  { path: 'settings', component: XConfigurationSettingsAdminComponent }
 
 ];
 
@@ -209,7 +208,6 @@ const appRoutes: Routes =[
     MatPaginatorModule,
     MatInputModule,
     FormsModule,
-    Ng2CarouselamosModule,
     MatFormFieldModule,
     MatSelectModule,
     GoogleChartsModule,
@@ -220,7 +218,7 @@ const appRoutes: Routes =[
 
 
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor , multi: true},AuthGuard],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
