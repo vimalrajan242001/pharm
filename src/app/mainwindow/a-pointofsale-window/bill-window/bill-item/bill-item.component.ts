@@ -14,11 +14,11 @@ import { SalesInteractionService } from './../../sales-interaction.service';
   styleUrls: ['./bill-item.component.css']
 })
 export class BillItemComponent implements OnInit {
-  array: Array<SalesInformationArray> =[];
-  items: Array<any> =[];
-  arr: Array<any> =[];
-  arr1: Array<any> =[];
-  itemArray: Array<any> =[];
+  array: Array<SalesInformationArray> = [];
+  items: Array<any> = [];
+  arr: Array<any> = [];
+  arr1: Array<any> = [];
+  itemArray: Array<any> = [];
   searchTerm: string;
   inventorys: Inventory[] = [];
   inven: Inventory[] = [];
@@ -28,21 +28,21 @@ export class BillItemComponent implements OnInit {
   tax: number;
   paidAmount: number;
   balance: number;
-  dataArray: Array<any> =[];
-
-  isLoading= false;
+  dataArray: Array<any> = [];
+  username = '';
+  isLoading = false;
   private inventorySubs: Subscription;
 
 
-  constructor(private inventoryInteractionService: InventoryInteractionService, private salesInteractionService:SalesInteractionService , private snackbar : MatSnackBar ) {
-    this.items =[
-      {name: 'https://i.ibb.co/L9X6wKM/pharmacare-logo-hori-tagline-2.png'},
+  constructor(private inventoryInteractionService: InventoryInteractionService, private salesInteractionService: SalesInteractionService, private snackbar: MatSnackBar) {
+    this.items = [
+      { name: 'https://i.ibb.co/L9X6wKM/pharmacare-logo-hori-tagline-2.png' },
     ]
-   }
+  }
 
   ngOnInit() {
     this.isLoading = true;
-    this.inventoryInteractionService.getInventory(null,null);
+    this.inventoryInteractionService.getInventory(null, null);
     this.inventorySubs = this.inventoryInteractionService.getInventoryUpdateListener()
       .subscribe((posts: Inventory[]) => {
         this.isLoading = false;
@@ -54,38 +54,38 @@ export class BillItemComponent implements OnInit {
     this.inventorySubs.unsubscribe();
   }
 
-  onAddToBill(itemId:string, name:string , expireDate:string , price:string, form:NgForm, realQuantity:string ){
+  onAddToBill(itemId: string, name: string, expireDate: string, price: string, form: NgForm, realQuantity: string) {
 
-  this.itemArray.push([itemId,name,expireDate,price,form.value.quantityNumber,realQuantity]);
-  this.dataArray.push([name,form.value.quantityNumber]);
+    this.itemArray.push([itemId, name, expireDate, price, form.value.quantityNumber, realQuantity]);
+    this.dataArray.push([name, form.value.quantityNumber]);
 
-  //  console.log(this.itemArray);
+    //  console.log(this.itemArray);
 
   }
 
-  onAddToCheckout(checkoutArray: Array<any> =[], form: NgForm){
+  onAddToCheckout(checkoutArray: Array<any> = [], form: NgForm) {
 
 
     // console.log(checkoutArray);
     let length = checkoutArray.length;
-    let x ;
-    let z ;
+    let x;
+    let z;
     let sum;
     this.total = 0;
 
-    for (let count = 0 ; count < length; count++) {
-       x = checkoutArray[count][3];
+    for (let count = 0; count < length; count++) {
+      x = checkoutArray[count][3];
 
-       z = checkoutArray[count][4];
-       sum = +x * +z ;
+      z = checkoutArray[count][4];
+      sum = +x * +z;
 
-       this.total = this.total + sum;
+      this.total = this.total + sum;
 
-       let quantity = +checkoutArray[count][5] - +checkoutArray[count][4];
-       this.inventoryInteractionService.updateQuantity(
+      let quantity = +checkoutArray[count][5] - +checkoutArray[count][4];
+      this.inventoryInteractionService.updateQuantity(
         checkoutArray[count][0],
         quantity
-        );
+      );
 
     }
 
@@ -99,12 +99,12 @@ export class BillItemComponent implements OnInit {
 
   }
 
-  onPrintBill(total: number,form: NgForm,checkoutArray: Array<any> =[]){
+  onPrintBill(total: number, form: NgForm, checkoutArray: Array<any> = []) {
     //this.array = ['nnkn','kdjfh'];
     this.tax = form.value.tax;
     this.paidAmount = form.value.paidAmount;
     let reducingAmount = +this.tax + +this.paidAmount;
-    this.balance = reducingAmount - total ;
+    this.balance = reducingAmount - total;
 
     console.log(this.tax);
     console.log(this.paidAmount);
@@ -117,9 +117,9 @@ export class BillItemComponent implements OnInit {
       this.tax,
       this.paidAmount,
       this.balance
-      );
+    );
 
-      this.snackbar.open("Transaction Added to Sales Report !!", 'Close');
+    this.snackbar.open("Transaction Added to Sales Report !!", 'Close');
 
   }
 
@@ -140,30 +140,30 @@ export class BillItemComponent implements OnInit {
       </html>`
     );
     popupWin.document.close();
-// const printContent = document.getElementById("print-section");
-// const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
-// WindowPrt.document.write(printContent.innerHTML);
-// WindowPrt.document.close();
-// WindowPrt.focus();
-// WindowPrt.print();
-// WindowPrt.close();
-}
+    // const printContent = document.getElementById("print-section");
+    // const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+    // WindowPrt.document.write(printContent.innerHTML);
+    // WindowPrt.document.close();
+    // WindowPrt.focus();
+    // WindowPrt.print();
+    // WindowPrt.close();
+  }
 
-// onAddSupplier() {
-//   if (this.form.invalid) {
-//     return;
-//   }
-
-
-//     this.supplierInteractionService.updateSupplier(this.supplierId,this.form.value.supplierID,
-//       this.form.value.name,
-//       this.form.value.email,
-//       this.form.value.contact,
-//       this.form.value.drugsAvailable );
+  // onAddSupplier() {
+  //   if (this.form.invalid) {
+  //     return;
+  //   }
 
 
-//   this.form.reset();
-// }
+  //     this.supplierInteractionService.updateSupplier(this.supplierId,this.form.value.supplierID,
+  //       this.form.value.name,
+  //       this.form.value.email,
+  //       this.form.value.contact,
+  //       this.form.value.drugsAvailable );
+
+
+  //   this.form.reset();
+  // }
 
 
 

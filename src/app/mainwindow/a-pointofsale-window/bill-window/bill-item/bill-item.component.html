@@ -18,13 +18,13 @@
                             </div>
                             <div class="control">
                                 <a class="button is-primary">
-                  Search
-                </a>
+                                    Search
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <p>{{ username }}</p>
                 <br>
 
                 <!-- <div class="slides-wrapper" ng2-carouselamos style="height: 400px;"
@@ -73,7 +73,8 @@
 
                                             <footer class="card-footer">
 
-                                                <button class="button btn is-primary is-rounded is-small-mobile  is-focused " style="margin-left: 50%;" (click)="onAddToBill(inventory.id, inventory.name,inventory.expireDate,inventory.price)">Add to Bill</button>
+                                                <button class="button btn is-primary is-rounded is-small-mobile  is-focused " style="margin-left: 50%;" (click)="onAddToBill(inventory.id, inventory.name,inventory.expireDate,inventory.price)">Add
+                                                    to Bill</button>
 
                                             </footer>
                                         </div>
@@ -132,8 +133,8 @@
                     </div>
                     <div class="panel-block">
                         <button class="button is-primary   is-fullwidth" type="submit">
-            Check Out
-          </button>
+                            Check Out
+                        </button>
                     </div>
                 </form>
             </section>
@@ -188,7 +189,7 @@
                                     <label class="label">Balance :</label>
                                 </div>
                                 <div class="control" style="padding-top: 3%;">
-                                    <label class="label">{{balance}}  </label>
+                                    <label class="label">{{balance}} </label>
                                 </div>
                             </div>
 
@@ -196,11 +197,11 @@
                     </div>
                     <div class="panel-block">
                         <button class="button is-primary   is-fullwidth" type="submit">
-            Get Balance
-          </button>
+                            Get Balance
+                        </button>
                         <button class="button is-primary   is-fullwidth" (click)="print()">
-            Print Bill
-          </button>
+                            Print Bill
+                        </button>
                     </div>
                 </form>
             </section>
@@ -222,21 +223,21 @@
 
         <div class="field has-addons">
             <div class="control" style="margin-right: 23%;padding-top: 3%;">
-                <label class="label">Tax:       {{tax}}</label>
+                <label class="label">Tax: {{tax}}</label>
             </div>
 
         </div>
         <br>
         <div class="field has-addons">
             <div class="control" style="margin-right: 0%;padding-top: 0%;">
-                <label class="label">Paid Amount :   {{paidAmount}}</label>
+                <label class="label">Paid Amount : {{paidAmount}}</label>
             </div>
 
         </div>
         <br>
         <div class="field has-addons">
             <div class="control" style="margin-right: 15%;padding-top: 3%;">
-                <label class="label">Balance :   {{balance}}</label>
+                <label class="label">Balance : {{balance}}</label>
             </div>
 
         </div>
@@ -247,22 +248,22 @@
                 <label class="label">Items :</label>
             </div>
             <div class="control" style="padding-top: 3%;">
-                <label class="label">{{dataArray[0]}}  </label><br>
-                <label class="label">{{dataArray[1]}}  </label><br>
-                <label class="label">{{dataArray[1]}}  </label><br>
-                <label class="label">{{dataArray[2]}}  </label><br>
-                <label class="label">{{dataArray[3]}}  </label><br>
-                <label class="label">{{dataArray[4]}}  </label><br>
-                <label class="label">{{dataArray[5]}}  </label><br>
-                <label class="label">{{dataArray[6]}}  </label><br>
-                <label class="label">{{dataArray[7]}}  </label><br>
-                <label class="label">{{dataArray[8]}}  </label><br>
-                <label class="label">{{dataArray[9]}}  </label><br>
-                <label class="label">{{dataArray[10]}}  </label><br>
-                <label class="label">{{dataArray[11]}}  </label><br>
-                <label class="label">{{dataArray[12]}}  </label><br>
-                <label class="label">{{dataArray[13]}}  </label><br>
-                <label class="label">{{dataArray[14]}}  </label><br>
+                <label class="label">{{dataArray[0]}} </label><br>
+                <label class="label">{{dataArray[1]}} </label><br>
+                <label class="label">{{dataArray[1]}} </label><br>
+                <label class="label">{{dataArray[2]}} </label><br>
+                <label class="label">{{dataArray[3]}} </label><br>
+                <label class="label">{{dataArray[4]}} </label><br>
+                <label class="label">{{dataArray[5]}} </label><br>
+                <label class="label">{{dataArray[6]}} </label><br>
+                <label class="label">{{dataArray[7]}} </label><br>
+                <label class="label">{{dataArray[8]}} </label><br>
+                <label class="label">{{dataArray[9]}} </label><br>
+                <label class="label">{{dataArray[10]}} </label><br>
+                <label class="label">{{dataArray[11]}} </label><br>
+                <label class="label">{{dataArray[12]}} </label><br>
+                <label class="label">{{dataArray[13]}} </label><br>
+                <label class="label">{{dataArray[14]}} </label><br>
             </div>
         </div>
 
