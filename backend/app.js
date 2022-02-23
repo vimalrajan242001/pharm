@@ -105,7 +105,16 @@ app.use((req, res, next) => {
 //     res.status(200).json({ message: 'Supplier deleted!' });
 //   });
 // });
-
+app.get("/", (req, res) => {
+    res.send("sda");
+});
+if (process.env.NODE_ENV === "production") {
+    //set static folder
+    app.use(express.static("client/build"));
+}
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 app.use("/api/supplier", supplierRoutes);
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/user", userRoutes);
@@ -113,6 +122,7 @@ app.use("/api/sales", salesRoutes);
 app.use("/api/doctorUser", doctorUserRoutes);
 app.use("/api/doctorOder", doctorOderRoutes);
 app.use("/api/verifiedDoctorOder", verifiedDoctorOderRoutes);
+
 app.use("/api/pickedUpOders", pickedUpOdersRoutes);
 
 module.exports = app;
